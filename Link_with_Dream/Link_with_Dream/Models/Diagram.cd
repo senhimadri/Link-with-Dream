@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Link_with_Dream.Models.AcademicQualification" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAAAAIAAACwAACAAAARAAAAAACAAAAA=</HashCode>
+      <FileName>Models\AcademicQualification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.ApplicationUser" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAGAAAAAAAACAAAAAAAAAAAAQAAADAAAgAAAACAg=</HashCode>
+      <FileName>Models\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.CandidateAnswer" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAIAAAAAAAQ=</HashCode>
+      <FileName>Models\CandidateAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.CareerInformation" Collapsed="true">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAACAAAAABAAEAAAAAAAAABAASAAACBAAACAAAAAAAA=</HashCode>
+      <FileName>Models\CareerInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.ChatMessege" Collapsed="true">
+    <Position X="2.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAAAAAAAAAAAAAAAAAAAFAoAAAAAABAAIAAA=</HashCode>
+      <FileName>Models\ChatMessege.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.Company" Collapsed="true">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQACAAAAACAAACEAAAAAAAQAAAEAAAACAAAAIAAAAgQ=</HashCode>
+      <FileName>Models\Company.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.CompanyPeople" Collapsed="true">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAEAAIAAAAAAAAAAAgAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Models\CompanyPeople.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.Complaint" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAQAAAAAAAAAAAAAAAAAACAABAAAAAAAACAAAAoA=</HashCode>
+      <FileName>Models\Complaint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.ContentComents" Collapsed="true">
+    <Position X="3.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAgAAAAAAAAAEAAAgAAAAAAAAAAAAYAAAAAAA=</HashCode>
+      <FileName>Models\ContentComents.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.ContentLike" Collapsed="true">
+    <Position X="8.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAABABAAAAAAAAAEAAAgAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Models\ContentLike.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.ContentPost" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAADAEAFAAIgAAAAAAAAgAgAgAAAABAJAAAABSAACAE=</HashCode>
+      <FileName>Models\ContentPost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.ErrorViewModel" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <InheritanceLine Type="System.Object" FixedToPoint="true">
+      <Path>
+        <Point X="1.25" Y="3.5" />
+        <Point X="1.25" Y="3.34" />
+        <Point X="0.26" Y="3.34" />
+        <Point X="0.26" Y="2.875" />
+        <Point X="0.5" Y="2.875" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ErrorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.ExamQuestion" Collapsed="true">
+    <Position X="10.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAEAAAgAAAAAAAAAAAARAAAAAAA=</HashCode>
+      <FileName>Models\ExamQuestion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.Friendship" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAAAAAAAAAAAAAAAFAAAAAAAABAAIAAA=</HashCode>
+      <FileName>Models\Friendship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.Group" Collapsed="true">
+    <Position X="9.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAAACAAAAAAAAAAAAAQAAAEAAAABAAAAAQAAAAA=</HashCode>
+      <FileName>Models\Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.GroupPeople" Collapsed="true">
+    <Position X="4.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAEAEAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GroupPeople.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.Notification" Collapsed="true">
+    <Position X="2.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgCAQAAAAAAAAAAAAAAAAAAAAAFAAAAAAAABAAIEAA=</HashCode>
+      <FileName>Models\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.ProfessionalSkill" Collapsed="true">
+    <Position X="6.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAABAAAAAIAAAAgAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ProfessionalSkill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.Project" Collapsed="true">
+    <Position X="6.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAAAgAAAAAIAAAAggACAAAAAAAAAAQEAAAAA=</HashCode>
+      <FileName>Models\Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.QuestionAnswer" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAgAAAgAAAAAAAAAACAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\QuestionAnswer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.SpecialQualification" Collapsed="true">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="System.Object" FixedToPoint="true">
+      <Path>
+        <Point X="1.25" Y="3.5" />
+        <Point X="1.25" Y="3.34" />
+        <Point X="2.135" Y="3.34" Type="JumpStart" />
+        <Point X="2.302" Y="3.34" Type="JumpEnd" />
+        <Point X="7.5" Y="3.34" />
+        <Point X="7.5" Y="3.312" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAADAAAAIAAAAAAAAAAAACggACAAAAAAAAAAAGAAAAA=</HashCode>
+      <FileName>Models\SpecialQualification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Models.WorkingExperience" Collapsed="true">
+    <Position X="10" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADQAAAAAAAAAAAAAACAAggECAAAgAAAAAAAEAAAAA=</HashCode>
+      <FileName>Models\WorkingExperience.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.AcademicQualificationController" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAABBACAAAAAAAAAAAEAAEBCAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\AcademicQualificationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.AutocompleteController" Collapsed="true">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Controllers\AutocompleteController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.CareerInformationController" Collapsed="true">
+    <Position X="6.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAABBACBAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CareerInformationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.CompanyProfileController" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQBIEAACAgBAAAAAAAAAAAAAAAAAAAgCEEBAAAAAg=</HashCode>
+      <FileName>Controllers\CompanyProfileController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.ContentManagementController" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAABAAAgAAAAAAgAAgAAAAAACEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ContentManagementController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.ContentPostsController" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAABBACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ContentPostsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.GroupManagementController" Collapsed="true">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAEQAAAABAAAAAAAgAAAgAIAAAAAACEAAAAAAAQ=</HashCode>
+      <FileName>Controllers\GroupManagementController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.HomeController" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAABQAAAAAAAAAAIAAAAQAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.MakeFriendController" Collapsed="true">
+    <Position X="0.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABABAAAAAAABAAAIAAEAAAIAAAAIAAAAAEAAAgAAAA=</HashCode>
+      <FileName>Controllers\MakeFriendController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.ManageAdminController" Collapsed="true">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECBAAAAAABBCCAAAAAIAGAAQEAAAHGAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ManageAdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.ManageGroupPeopleController" Collapsed="true">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgAEBgIAAIAARQAIIgAAgACAAAQAACLAIAAAAABAAAA=</HashCode>
+      <FileName>Controllers\ManageGroupPeopleController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.MessegeController" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAABAAAAAgAAAQAAAAAAEAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\MessegeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.NetworkController" Collapsed="true">
+    <Position X="0.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\NetworkController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.ProfessionalSkillController" Collapsed="true">
+    <Position X="2.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAABBACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ProfessionalSkillController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.ProjectController" Collapsed="true">
+    <Position X="6.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAABBACAAAAAAAAAAAEgAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ProjectController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.SpecialQualificationController" Collapsed="true">
+    <Position X="4.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAABBACAEAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\SpecialQualificationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.UserProfileController" Collapsed="true">
+    <Position X="4.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAQAAAABAEAAAAACAAgCAAAEAAAAAEAAAAEBAA=</HashCode>
+      <FileName>Controllers\UserProfileController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Controllers.WorkingExperienceController" Collapsed="true">
+    <Position X="4.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAgBBACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\WorkingExperienceController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Mvc.Controller" Collapsed="true">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.IdentityUser" Collapsed="true">
+    <Position X="10.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Mvc.ControllerBase" Collapsed="true">
+    <Position X="10.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Link_with_Dream.Data.ApplicationDbContext" Collapsed="true">
+    <Position X="5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAQAkAAABAAAAAADAAgABIASAAAAgASBAAEBIQ=</HashCode>
+      <FileName>Data\ApplicationDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext&lt;TUser, TRole, TKey&gt;" Collapsed="true">
+    <Position X="8.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Link_with_Dream.Data.MyUserClaimsPrincipalFactory" Collapsed="true">
+    <Position X="2.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\MyUserClaimsPrincipalFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Program" Collapsed="true">
+    <Position X="8.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Startup" Collapsed="true">
+    <Position X="10.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAgAAACAAAAAA=</HashCode>
+      <FileName>Startup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Link_with_Dream.Areas.Identity.IdentityHostingStartup" Collapsed="true">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Areas\Identity\IdentityHostingStartup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Microsoft.AspNetCore.Identity.UserClaimsPrincipalFactory&lt;TUser&gt;" Collapsed="true">
+    <Position X="7" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,76 @@
+﻿@model Link_with_Dream.Models.Company
+@{
+    ViewData["Title"] = "CompanyAbout";
+}
+<div class="row">
+    <div class="col-md-3">
+        <h4> @Html.DisplayFor(model => model.Name)</h4>
+        <h6>email: @Html.DisplayFor(model => model.Email)</h6>
+        <h6>Phone: @Html.DisplayFor(model => model.Phone)</h6>
+    </div>
+    <div class="col-md-9" style=" height: 180px; width: 100%; overflow: hidden;">
+        <a asp-action="EditImage"> <img src="~/Images/@Model.CoverPic" class="align-center" style="width:100%;" /></a>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-3">
+        <div class="list-group">
+            <a asp-controller="" asp-action="" asp-route-id="" class="list-group-item list-group-item-action" id="Posts">Posts</a>
+            <a asp-controller="" asp-action="" asp-route-id="" class="list-group-item list-group-item-action" id="Posts">Company Information</a>
+            <a asp-controller="CompanyProfile" asp-action="CompanyAbout" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">About</a>
+            <a asp-controller="CompanyProfile" asp-action="" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">Career</a>
+            <a asp-controller="CompanyProfile" asp-action="CompanyServise" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">Services</a>
+            <a asp-controller="CompanyProfile" asp-action="CompanyCaseStudy" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">Case Study</a>
+        </div>
+    </div>
+    <div class="col-md-6"> 
+        <div>
+            <h4>Case Study</h4>
+            <hr />
+            <div style="border-style:double; padding:10px;overflow:hidden;" class="card card-body">
+                <pre class="text-justify col-md-12" style="white-space: pre-wrap;">@Html.DisplayFor(model => model.CaseStudy)</pre>
+                @if (ViewBag.Status == 0)
+                {
+                    <a class="btn btn-outline-info btn-block btn-sm" asp-controller="CompanyProfile" asp-action="EditOptional" asp-route-id="@Model.Id">Edit Information</a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        @if (ViewBag.Status == 4)
+        {
+            <form action="/" method="post">
+                <input name="id" value="@Model.Id" hidden />                                                                                          
+                <button class="btn btn-outline-info btn-block btn-sm" value="">Follow</button>
+            </form>
+        }
+        else if (ViewBag.Status == 2)
+        {
+            <form action="/" method="post">
+                <input name="id" value="@Model.Id" />
+                <button class="btn btn-outline-info btn-block btn-sm" value="Follow">Unfollow</button>
+            </form>
+        }
+        else if (ViewBag.Status == 0)
+        {
+            <a class="btn btn-outline-info btn-block btn-sm" asp-controller="ManageAdmin" asp-action="Index" asp-route-id="@Model.Id">Manage Admin</a>
+        }
+        else if (ViewBag.Status == 1)
+        {
+            <form asp-controller="ManageAdmin" asp-action="LeaveasAdmin" method="post">
+                <input name="id" value="@Model.Id" />
+                <button class="btn btn-outline-info btn-block btn-sm" value="">Leave as Admin</button>
+            </form>
+        }
+        <br />
+        <label>Followed By : @ViewBag.Followers  Peoples</label>
+        <hr />
+        <Label>Started At :@Html.DisplayFor(model => model.Instalation)</Label>
+        <hr />
+        <label>Address</label>
+        <p class="text-justify">@Html.DisplayFor(model => model.Address)</p>
+    </div>
+</div>
+
+

@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SearchJob"> <img src="~/ImgComp/search.png" style="height:20px;width:20px;" class="align-center" /> Search Job</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Messege" asp-action="Index"><img src="~/ImgComp/messege.jpg" style="height:25px;width:25px;" class="align-center" /> Messege</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-controller="Home" asp-action="Network"><img src="~/ImgComp/networkicon.png" style="height:25px;width:25px;" class="rounded-circle align-center" /> Network</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="~/Images/@(User.FindFirst("ProfilePic").Value)" style="height:25px;width:25px;" class="rounded-circle align-center" />  @(User.FindFirst("FirstName").Value)
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" asp-controller="UserProfile" asp-action="About" asp>Profile</a>
+                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Settings</a>
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="dropdown-item">Logout</button>
+                    </form>
+                    @*<a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Logout</a>*@
+                </div>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        }
+    </ul>

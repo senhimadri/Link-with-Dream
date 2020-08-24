@@ -1,0 +1,94 @@
+﻿@model Link_with_Dream.Models.Group
+@{
+    ViewData["Title"] = "GroupAbout";
+}
+<div class="row">
+    <div class="col-md-3">
+        <h4> @Html.DisplayFor(model => model.Name)</h4>
+        <h6>email: @Html.DisplayFor(model => model.MenbersType)</h6>
+    </div>
+    <div class="col-md-9" style=" height: 180px; width: 100%; overflow: hidden;">
+        <a asp-action="EditImage" asp-route-id="@Model.Id"> <img src="~/Images/@Model.CoverImage" class="align-center" style="width:100%;" /></a>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-3">
+        <div class="list-group">
+            <a asp-controller="" asp-action="" asp-route-id="" class="list-group-item list-group-item-action" id="Posts">Posts</a>
+            <a asp-controller="GroupManagement" asp-action="GroupAbout" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">Group Information</a>
+            <a asp-controller="GroupManagement" asp-action="GroupAbout" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">Terms and Condition</a>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <partial name="_StateMessege" model="@ViewBag.Messege" />
+        <div>
+            <h4>About Group</h4>
+            <hr />
+            <div style="border-style:double; padding:10px;overflow:hidden;" class="card card-body">
+                <pre class="text-justify col-md-12" style="white-space: pre-wrap;">@Html.DisplayFor(model => model.TermsCondition                                                                                                                                                                                                                                                )</pre>
+                @if (ViewBag.Status == 0)
+                {
+                    <a class="btn btn-outline-info btn-block btn-sm" asp-controller="GroupManagement" asp-action="GroupEdit" asp-route-id="@Model.Id">Edit Information</a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        @if (ViewBag.Status == 0)
+        {
+            <a class="btn btn-outline-info btn-block btn-sm" asp-controller="ManageGroupPeople" asp-action="GroupAdmins" asp-route-id="@Model.Id">Manage Admins</a>
+            <a class="btn btn-outline-info btn-block btn-sm" asp-controller="ManageGroupPeople" asp-action="GroupMembers" asp-route-id="@Model.Id">Manage Members</a>
+        }
+        else if (ViewBag.Status == 1)
+        {
+        <form asp-controller="ManageGroupPeople" asp-action="LeaveasAdmin" method="post">
+            <input name="groupid" value="@Model.Id" hidden />
+            <input type="submit" value="Leave as Admin" class="btn btn-outline-info btn-block btn-sm" />
+        </form> <br />
+        <a class="btn btn-outline-info btn-block btn-sm" asp-controller="ManageGroupPeople" asp-action="GroupMembers" asp-route-id="@Model.Id">Manage Members</a>
+        }
+        else if (ViewBag.Status == 2)
+        {
+        <form asp-controller="ManageGroupPeople" asp-action="LeaveasMember" method="post">
+            <input name="id" value="@Model.Id" hidden />
+            <input type="submit" value="Leave Group" class="btn btn-outline-info btn-block btn-sm" />
+        </form>
+        }
+        else if (ViewBag.Status == 4)
+        {
+        <form asp-controller="ManageGroupPeople" asp-action="AcceptAsAdmin" method="post">
+            <input name="GroupId" value="@Model.Id" hidden />
+            <input type="submit" value="Accept as Admin" class="btn btn-outline-info btn-block btn-sm" />
+        </form>
+        }
+        else if (ViewBag.Status == 5)
+        {
+        <form asp-controller="ManageGroupPeople" asp-action="" method="post">
+            <input name="id" value="@Model.Id" hidden />
+            <input type="submit" value="Accept as Member" class="btn btn-outline-info btn-block btn-sm" />
+        </form>
+        }
+        else if (ViewBag.Status == 6)
+        {
+        <form asp-controller="ManageGroupPeople" asp-action="LeaveasMember" method="post">
+            <input name="id" value="@Model.Id" hidden />
+            <input type="submit" value="Cancle Join Request" class="btn btn-outline-info btn-block btn-sm" />
+        </form>
+        }
+        else if (ViewBag.Status == 7)
+        {
+        <form asp-controller="ManageGroupPeople" asp-action="GroupaddRequest" method="post">
+            <input name="groupid" value="@Model.Id" hidden />
+            <input type="submit" value="Join Group" class="btn btn-outline-info btn-block btn-sm" />
+        </form>
+        }
+        <br />
+        <label>Group Members : @ViewBag.Followers  Peoples</label>
+        <hr />
+        <Label>Started At :@Html.DisplayFor(model => model.CreateTime)</Label>
+        <hr />
+    </div>
+</div>
+
+

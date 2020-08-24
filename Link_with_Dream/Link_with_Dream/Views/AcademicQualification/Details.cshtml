@@ -1,0 +1,62 @@
+﻿@model Link_with_Dream.Models.AcademicQualification
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+    <div class="col-md-8 offset-md-2">
+        <div>
+            <h4>Academic Qualification</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.ExamName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.ExamName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Subject)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Subject)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Institute)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Institute)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Board)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Board)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.PassingYear)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.PassingYear)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Result)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Result)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IsPublic)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IsPublic)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+            <a asp-controller="UserProfile" asp-action="AcademicQualification">Back to Profile</a>
+        </div>
+
+    </div>
+

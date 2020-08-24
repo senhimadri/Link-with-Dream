@@ -1,0 +1,92 @@
+﻿@model Link_with_Dream.Models.ChatMessege
+@{
+    ViewData["Title"] = "ChatCampus";
+}
+    <div class="row">
+        <div class="col-md-8 card" style="width:100%; height:500px;">
+            <div class="card-header">
+                <form asp-action="Create" class="form-inline">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <input asp-for="Messege" class="form-control" style="width:350px;" />
+                    </div>
+                    <input asp-for="ReceiverId" class="form-control" value="@ViewBag.UserInfo.Id" hidden />
+                    <input class="form-check-input" asp-for="IsSeen" hidden />
+                    <div class="form-group">
+                        <input type="submit" value="Send" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="overflow-auto card-body" style="width:100%; height:500px;">
+                <table class="table table-responsive">
+                    <thead>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-4 card">
+            <div class="card-header">
+                <img src="~/Images/@ViewBag.Userinfo.ProfilePic" class="rounded-circle align-center" style="width:150px; height:150px;" />
+            </div>
+            <div class="card-body">
+                <h2>@ViewBag.Userinfo.FirstName  @ViewBag.Userinfo.LastName</h2>
+                <label class="text-justify"> @ViewBag.Userinfo.Profession </label>
+                <p class="text-justify overflow-auto" style="height:120px;"> @ViewBag.Userinfo.PersonalObjective </p>
+            </div>
+            <div class="card-footer">
+                <a asp-controller="UserProfile" asp-action="About" asp-route-CUserId="@ViewBag.Userinfo.Id" class="btn btn-outline-info btn-sm">View Details</a>
+                <a asp-controller="Messege" asp-action="Index" class="btn btn-outline-success btn-sm" > Go to Back</a>
+            
+            </div>
+             
+        </div>
+    </div>
+
+<input type="hidden" id="uid" name="name" value="@ViewBag.UserInfo.Id" />
+<input type="hidden" id="MyId" name="name" value="@ViewBag.Myself" />
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            var showdata = function () {
+                var id = $("#uid").val();
+                var mid = $("#MyId").val();
+                $.ajax({
+                    url: '/Messege/Messges/' + id,
+                    type: 'GET',
+                    dataType: 'JSON',
+                    success: function (data) {
+                        console.log(data);
+                        //$("tbody").append(data);
+                        $("tbody").empty();
+                        $.each(data, function (i, obj) {
+                            var aln = 'text-left alert alert-info';
+                            //var r1 = '<tr><td> Send By : ' + obj.sName + '</td><td>' + obj.postTime + '</td><td>' + obj.msg + '</td><td>Received By : ' + obj.rName + '</td></tr>';
+                            if (obj.senderId == mid) {
+                                var r1 = '<tr><td><p class="' + aln + '" style="margin-right:10%; width:90%;"><i>' + obj.messege + ' </i><br /><small>' + obj.messegeTime + '</small> </p></td></tr>';
+                                $("tbody").append(r1);
+                            }
+                            else {
+                                aln = 'text-right alert alert-warning';
+                                var r1 = '<tr><td style="margin-left:10%; width:90%;"><p class="' + aln + '" ><small>' + obj.messegeTime + '</small> <i>' + obj.messege + ' </i></p></td></tr>';
+                                $("tbody").append(r1);
+                            }
+                            //var r1 = '<tr><td><p class="' + aln + '"><b> Send By : ' + obj.sName + '</b> <small>' + obj.postTime + '</small> <i>' + obj.msg + ' </i><b>Received By : ' + obj.rName + '</b></p></td></tr>';
+                            //$("tbody").append(r1);
+                        });
+
+                    },
+                    error: function (err) {
+                        console.log("Error.");
+                    }
+                });
+            };
+
+            setInterval(showdata, 3000);
+            //showdata();
+        });
+    </script>
+}
+

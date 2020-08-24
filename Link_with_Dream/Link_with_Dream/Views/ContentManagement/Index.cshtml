@@ -1,0 +1,125 @@
+﻿@model Link_with_Dream.Models.ContentPost
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <div class="row">
+        <div class="col-md-3">
+            <h3>Published By</h3>
+            @if (Model.PostType == 0)
+            {
+                <div class="col-md-12 text-center" style="border-style: double; margin-bottom: 5%; border-color: lightseagreen; padding:5px; ">
+                    <img src="~/Images/@Model.User.ProfilePic" class="rounded-circle align-center" style="width:150px; height:150px;" />
+                    <a asp-controller="UserProfile" asp-action="About" asp-route-CUserId="@Model.User.Id"><h5>@Model.User.FirstName @Model.User.LastName</h5></a>
+                    
+                    @Model.User.Profession
+                </div>
+            }
+            @if (Model.PostType == 1)
+            {
+        <div class="col-md-12 text-center" style="border-style: double; margin-bottom: 5%; border-color: lightseagreen; padding:5px; ">
+            <img src="~/Images/@Model.CGPoster.ProfilePic" class="rounded-circle align-center" style="width:150px; height:150px;" />
+            <a asp-controller="UserProfile" asp-action="About" asp-route-CUserId="@Model.CGPoster.Id"><h5>@Model.CGPoster.FirstName @Model.CGPoster.LastName</h5></a>
+            @Model.CGPoster.Profession
+        </div>
+                <h3>Company Name</h3>
+
+                <a asp-controller="CompanyProfile" asp-action="CompanyAbout" asp-route-id="@Model.CompanyId"><h5>@Model.Company.Name</h5></a>
+            }
+            @if (Model.PostType == 2)
+            {
+                <div class="col-md-12 text-center" style="border-style: double; margin-bottom: 5%; border-color: lightseagreen; padding:5px; ">
+                    <img src="~/Images/@Model.CGPoster.ProfilePic" class="rounded-circle align-center" style="width:150px; height:150px;" />
+                    <h5>@Model.CGPoster.FirstName @Model.CGPoster.LastName</h5>
+                    @Model.CGPoster.Profession
+                </div>
+                <h3>Company Name</h3>
+
+                <a asp-controller="CompanyProfile" asp-action="CompanyAbout" asp-route-id="@Model.CompanyId"><h5>@Model.Company.Name</h5></a>
+            }
+
+        </div>
+        <div class="col-md-9">
+            <div class="card card-body">
+                <h2 class="text-primary">@Model.Heading</h2>
+                @if (Model.PostType == 0)
+                {
+                    <h6>Content Type : Personal Post</h6>
+                }
+                @if (Model.PostType == 1)
+                {
+                    <h6>Content Type : Companies General Post</h6>
+                }
+                @if (Model.PostType == 2)
+                {
+                    <h6>Content Type : Job Circular</h6>
+                }
+
+            <div>
+                @if (ViewBag.Img == true)
+                {
+                    <img src="~/Images/@Model.Image" alt="..." style="height:150px; float: left;padding-top:6px;margin-right:15px;">
+                }
+                <div>
+                    @Html.Raw(Model.Description)
+                </div>
+                @if (Model.PostType == 2)
+                {
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Last Date of Application: @Model.DeadLine</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Job Type: @Model.JobType</h6>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>Job Type: @Model.Area</h6>
+                        </div>
+                    </div>
+                    @if (Model.DeadLine > DateTime.Now)
+                    {
+                        <div class="row col-md-12">
+                            <a class="btn btn-outline-info btn-sm pull-right">Apply for this Job</a>
+                        </div>
+                    }
+                    else
+                    {
+                      <h6> Last date of apply is over</h6>
+                    }
+
+                }
+
+            </div>
+                <div class="row" style="padding-left:15px;padding-top:5px;">
+                    @if ((Model.PostType == 1 || Model.PostType == 2) && ViewBag.UserInfo == Model.CGPosterId)
+                    {
+                        <a class="btn btn-outline-primary btn-sm pull-right" asp-controller="ContentPosts" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    }
+                    else if (Model.PostType == 0 && ViewBag.UserInfo == Model.User.Id)
+                    {
+                        <a class="btn btn-outline-primary btn-sm pull-right" asp-controller="ContentPosts" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+                    }
+                </div>
+
+            </div>
+            <br />
+            <form asp-action="Coments" method="post">
+                <div class="input-group mb-3">
+                    <input name="contentId" type="text"  value="@Model.Id" hidden/>
+                    <input  name="coments" type="text" class="form-control table-sm" placeholder="Add Coments" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <input type="submit" value="Add" class="btn btn-outline-info" />
+                    </div>
+                </div>
+            </form>
+            <hr />
+
+            @foreach (var item in ViewBag.Coments)
+            {
+            <h6>@item.User.FirstName @item.User.LastName </h6>
+            <label class="text-justify">@item.Coment</label>
+            <hr />
+            }
+
+        </div>
+    </div>

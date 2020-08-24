@@ -1,0 +1,26 @@
+﻿@model Link_with_Dream.Models.Company
+@{
+    ViewData["Title"] = "EditImage";
+}
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3>@Model.Name</h3>
+            <img src="~/Images/@Model.CoverPic" class="shadow-sm align-center" style="width:100%;" />
+            @if (ViewBag.UserStatus == 0)
+            {
+                <form method="post" enctype="multipart/form-data" asp-action="EditImage" class="form-inline">
+                    <input type="text" name="id" value="@Model.Id" hidden />
+                    <div class="form-group custom-file">
+                        <div class="img-thumbnail" style="width:100%;">
+                            <div class="btn btn-light btn-sm">
+                                <input type="file" name="CompanyPic" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="float:right;">Change</button>
+                        </div>
+                    </div>
+                </form>
+            }
+
+        </div>
+    </div>
+

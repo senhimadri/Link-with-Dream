@@ -1,0 +1,264 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    ViewData["Title"] = "Home Page";
+}
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <a href="#">
+                <div class="col-md-12 text-center" style="border-style: double; margin-bottom: 5%; border-color: lightseagreen; padding:5px; ">
+                    <img src="~/Images/@ViewBag.UserInfo.ProfilePic" class="rounded-circle align-center" style="width:150px; height:150px;" />
+                    <h5>@ViewBag.UserInfo.FirstName @ViewBag.UserInfo.LastName</h5>
+                    @ViewBag.UserInfo.Profession
+                </div>
+            </a>
+
+            <p>
+                <a class="btn btn-outline-info btn-md btn-block" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1">Company</a>
+            </p>
+            <div class="collapse" id="collapseExample1">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+
+                </div>
+            </div>
+            <p>
+                <a class="btn btn-outline-info btn-md btn-block" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">Groups</a>
+            </p>
+            <div class="collapse" id="collapseExample2">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                    <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                    <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6" style="Overflow-y: hidden">
+            <partial name="_StateMessege" model="@ViewBag.Messege" />
+            <p>
+                <button type="button" class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#PersonalContent">Create a New Post</button>
+            </p>
+            <div class="modal fade bd-example-modal-lg" id="PersonalContent" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" style="padding:10px;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Add a New Content</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form asp-controller="ContentManagement" asp-action="PersonalContentPost" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input name="heading" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Subject of the Topic" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="description" class="form-control" id="editor3" rows="15" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="img-thumbnail" style="width:100%;">
+                                        <div class="btn btn-light btn-sm">
+                                            <input type="file" name="image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" value="Post" class="btn btn-primary btn-sm btn-block" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn-group btn-group-sm btn-block">
+                <button type="button" class="btn btn-info btn-sm disabled">Posts</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm">All</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm">Jobs</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm">Friend's</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm">Company's</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm">Groups's</button>
+            </div>
+            @foreach (var item in ViewBag.Content)
+            {
+                if (item.PostType == 0)
+                {
+                    
+                    <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                        <h5 class="text-primary"> @item.Heading</h5>
+                        <h6 class="text-info">Published By :<a asp-controller="UserProfile" asp-action ="About" asp-route-CUserId = "@item.User.Id"><b>@item.User.FirstName @item.User.LastName</b></a> </h6>
+                        <div style="height:270px;overflow:hidden;">
+                            @if (item.Image == null || item.Image == "")
+                            {
+
+                            }
+                            else
+                            {
+                                <img src="~/Images/@item.Image" alt="..." style="height:150px; float: left;padding-top:6px;margin-right:15px;">
+                            }
+                            <div>
+                                @Html.Raw(item.Description)
+                            </div>
+                        </div>
+                        <div class="row" style="padding-left:15px;padding-top:5px;">
+                            <a class="btn btn-outline-info btn-sm pull-right" asp-controller="ContentManagement" asp-action="Index" asp-route-PostId="@item.Id">View Details</a>
+                            @if (ViewBag.UserInfo.Id == @item.User.Id)
+                            {
+                                <a class="btn btn-outline-primary btn-sm pull-right" asp-controller="ContentPosts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            }
+                        </div>
+
+                    </div>
+                }
+                else if (item.PostType == 1)
+                {
+                    <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                        <h5 class="text-primary"> @item.Heading</h5>
+                        <h6 class="text-info">Published From :<a asp-controller="CompanyProfile" asp-action="CompanyAbout" asp-route-id="@item.Company.Id"><b>@item.Company.Name</b></a>  </h6>
+                        <div style="height:270px;overflow:hidden;">
+                            @if (item.Image == null || item.Image == "")
+                            {
+
+                            }
+                            else
+                            {
+                                <img src="~/Images/@item.Image" alt="..." style="height:150px; float: left;padding-top:6px;margin-right:15px;">
+                            }
+                            <div>
+                                @Html.Raw(item.Description)
+                            </div>
+                        </div>
+                        <div class="row" style="padding-left:15px;padding-top:5px;">
+                            <a class="btn btn-outline-info btn-sm pull-right" asp-controller="ContentManagement" asp-action="Index" asp-route-PostId="@item.Id">View Details</a>
+                            @if (ViewBag.UserInfo.Id == @item.CGPoster.Id)
+                            {
+                                <a class="btn btn-outline-primary btn-sm pull-right" asp-controller="ContentPosts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            }
+                        </div>
+
+                    </div>
+                }
+                else if (item.PostType == 2)
+                {
+                    <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                        <h5 class="text-primary"> @item.Heading</h5>
+                        <h6 class="text-info">Published From :<a asp-controller="CompanyProfile" asp-action="CompanyAbout" asp-route-id="@item.Company.Id"><b>@item.Company.Name</b></a>  </h6>
+                        <h6 class="text-info">Post Type : Job Post  </h6>
+                        <div style="height:270px;overflow:hidden;">
+                            @if (item.Image == null || item.Image == "")
+                            {
+
+                            }
+                            else
+                            {
+                                <img src="~/Images/@item.Image" alt="..." style="height:150px; float: left;padding-top:6px;margin-right:15px;">
+                            }
+                            <div>
+                                @Html.Raw(item.Description)
+                            </div>
+                        </div>
+                        <div class="row" style="padding-left:15px;padding-top:5px;">
+                            <a class="btn btn-outline-info btn-sm pull-right" asp-controller="ContentManagement" asp-action="Index" asp-route-PostId="@item.Id">View Details</a>
+                            @if (ViewBag.UserInfo.Id == @item.CGPoster.Id)
+                            {
+                                <a class="btn btn-outline-primary btn-sm pull-right" asp-controller="ContentPosts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            }
+                        </div>
+
+                    </div>
+                }
+
+            }
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Notifications
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body text-justify">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Section
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Friends
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+}
+else
+{
+
+    <img src="~/ImgComp/AdobeStock_177732430.jpg" style="width:100%;"/>
+
+}
+<a asp-controller="GroupManagement" asp-action="CreateGroup">Create a Group</a>
+<br />
+<a asp-controller="UserProfile" asp-action="About">See Your Profile</a>
+<br />
+<a asp-controller="ManageGroupPeople" asp-action="GroupAdminRequest">See Group Admin Request</a>
+<br />
+<a asp-controller="ManageGroupPeople" asp-action="GroupAdminRequest">See Group Member Request</a>
+<br />
+<a asp-controller="ManageGroupPeople" asp-action="GroupAdminRequest">See Your Created Group</a>
+<br />
+<h5>Making Friend</h5>
+<a asp-controller="MakeFriend" asp-action="SearchPeople">Search People</a>
+<br />
+<a asp-controller="MakeFriend" asp-action="FriendRequestlist">See Friend Request list</a>
+<br />
+<a asp-controller="MakeFriend" asp-action="Friendlist">See Friend list</a>
+<br />
+<link href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css" rel="stylesheet" />
+@section Scripts{
+    <script>
+        $('#editor3').trumbowyg();
+    </script>
+}
+
+
+
+

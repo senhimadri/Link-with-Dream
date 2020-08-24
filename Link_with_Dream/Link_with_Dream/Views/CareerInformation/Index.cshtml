@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Link_with_Dream.Models.CareerInformation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarrierObjective)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LookingFor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableFor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferedJobCatagory1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferedJobCatagory2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferedJobCatagory3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferdArea1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PreferdArea2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpectedSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsPublic)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarrierObjective)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LookingFor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableFor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreferedJobCatagory1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreferedJobCatagory2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreferedJobCatagory3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreferdArea1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreferdArea2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPublic)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

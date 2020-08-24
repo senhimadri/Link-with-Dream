@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "SearchJob";
+}
+    <div class="col-md-8">
+        <form asp-action="SearchJob" method="post" class="form-inline" style="width:500px;">
+            <div class="form-group">
+                <input type="text" id="SearchTitle" name="searchtext" class="form-control" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-outline-primary" />
+            </div>
+        </form>
+        <hr />
+        <div style="border-style:double; padding:10px;overflow:hidden;" class="card card-body">
+            @if (ViewBag.aa == true)
+            {
+
+                @if (ViewBag.Content.Count == 0)
+                {
+                    <h3>There is no result</h3>
+                }
+                else
+                {
+                    foreach (var item in ViewBag.Content)
+                    {
+                        <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                            <h5 class="text-primary"> @item.Heading</h5>
+                            <h6 class="text-info">Published From :<a asp-controller="CompanyProfile" asp-action="CompanyAbout" asp-route-id="@item.Company.Id"><b>@item.Company.Name</b></a>  </h6>
+                            <div style="height:120px;">
+                                @if (item.Image == null || item.Image == "")
+                                {
+
+                                }
+                                else
+                                {
+                                    <img src="~/Images/@item.Image" alt="..." style="height:120px; float: left;padding-top:6px;margin-right:15px;">
+                                }
+                            <div>
+                                <label>DeadLine: @item.DeadLine</label>
+                                <br />
+                                <label>Job Type: @item.JobType</label>
+                                <br />
+                                <label>Location: @item.Area</label>
+                            </div>
+                            </div>
+                            <H3></H3>
+                            <div class="row" style="padding-left:15px;padding-top:5px;">
+                                <a class="btn btn-outline-info btn-sm pull-right" asp-controller="ContentManagement" asp-action="Index" asp-route-PostId="@item.Id">View Details</a>
+                            </div>
+
+                        </div>
+                    }
+                }
+            }
+
+        </div>
+    </div>

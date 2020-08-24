@@ -1,0 +1,240 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card">
+    <div class="row" style="padding:10px;">
+        <div class="col-md-2 align-center">
+            <img src="~/Images/2f020343-bffb-43f3-995d-9a127024fcfe_IMG_20161228_124205.jpg" class="rounded-circle align-center" style="width:150px; height:150px;" />
+        </div>
+        <div class="col-md-10">
+
+            <h2> Himadri Sen Apu </h2>
+
+            <label class="text-justify">ASP.NET Developer at AKIJ HOUSE</label>
+            <p class="text-justify">Intend to work in a challenging and competitive environment, where strong sense of responsibility, teamwork and commitment is required. To build up my career in the field of some challenging post in any organization where there is immense scope. </p>
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="list-group">
+            <a asp-controller="UserProfile" asp-action="Post" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="Posts">Posts</a>
+            <a asp-controller="UserProfile" asp-action="About" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="About">About</a>
+            <a asp-controller="UserProfile" asp-action="AcademicQualification" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="AcademicQualification">Academic Qualification</a>
+            <a asp-controller="UserProfile" asp-action="SpecialQualification" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="SpecialQualification">Special Qualification</a>
+            <a asp-controller="UserProfile" asp-action="ProfetionalSkill" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="ProfetionalSkil">Profetional Skill</a>
+            <a asp-controller="UserProfile" asp-action="WorkingExperience" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="Working Experience">Working Experience</a>
+            <a asp-controller="UserProfile" asp-action="Project" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="Project">Project</a>
+            <a asp-controller="UserProfile" asp-action="CareerInformation" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="Project">Career Information</a>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <p>
+            <a class="btn btn-info btn-sm btn-block" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Create a New Post</a>
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body" style="margin-bottom:5%; border-style:double;border-color:lightseagreen;">
+
+                <form action="/" method="post">
+                    <input type="text" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="What's on your Mind">
+                    <br />
+                    <textarea class="form-control form-control-sm" id="exampleFormControlTextarea1" rows="2" placeholder="Add Content"></textarea>
+                    <br />
+                    <div class="img-fluid input-sm" style="width:100%;">
+                        <div class="btn btn-light btn-sm">
+                            <input type="file">
+                        </div>
+                    </div>
+                    <br />
+                    <button type="button" class="btn btn-primary btn-sm btn-block">Post</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="Posts">
+            <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                <h5 class="text-primary">The Main Exebatiopn of the Optional Opthion </h5>
+                <h6 class="text-info">Published By :<b>Himadri Sen Apu</b> </h6>
+                <div style="height:270px;overflow:hidden;">
+                    <img src="~/Images/2f020343-bffb-43f3-995d-9a127024fcfe_IMG_20161228_124205.jpg" alt="..." style="height:200px; float: left;padding-top:6px;margin-right:15px;">
+                    <p class="text-justify"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                </div>
+                <div class="row" style="padding-left:15px;padding-top:5px;">
+                    <button type="button" class="btn btn-outline-info btn-sm " style="width:20%; margin-right:2%">Like</button>
+                    <button type="button" class="btn btn-outline-info btn-sm" style="width:25%; margin-right:2%" data-toggle="collapse" href="#collapseExample11" aria-expanded="false" aria-controls="collapseExample1">Coments</button>
+                    <button type="button" class="btn btn-outline-info btn-sm pull-right" style="width:25%;">Details</button>
+                </div>
+                <div class="collapse" id="collapseExample11" style="margin-top:10px;">
+                    <form action="/" method="post">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control table-sm" placeholder="Add Coments" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-info" type="button">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="AcademicQualifications">
+            <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                <h4>Academic Qualification</h4>
+                @if (ViewBag.isacademicqualification == true)
+                {
+                    foreach (var item in ViewBag.academicqualification)
+                    {
+                        <label>@item.ExamName in @item.Subject</label>
+                        <label>Institue : @item.Institute</label>
+                        <label>Board : @item.Board   Passing Year: @item.PassingYear    Result: @item.Result </label>
+                        <a href="#">Edit</a> <a href="#">Delete</a>
+                    }
+                }
+                else
+                {
+                    <label>You dont add any Academic Qualification</label>
+                }
+                <button class="btn btn-block btn-outline-info btn-sm"> Add New </button>
+            </div>
+        </div>
+
+        <div id="SpecialQualifications">
+            <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                <h4>Special Qualification</h4>
+                @if (ViewBag.isspecialqualification == true)
+                {
+                    foreach (var item in ViewBag.specialqualification)
+                    {
+
+                        <label>@item.CourseTitle</label>
+                        <label>Topic : @item.Topic</label>
+                        <label>Institue : @item.Institute</label>
+                        <label>Duration  : From @item.StartDate to @item.EndDate </label>
+
+                        <a href="#">Edit</a> <a href="#">Delete</a>
+                    }
+                }
+                else
+                {
+                    <label>You dont add any Special Qualification</label>
+                }
+
+                <button class="btn btn-block btn-outline-info btn-sm"> Add New </button>
+            </div>
+        </div>
+
+        <div id="ProfessionalSkills">
+            <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                <h4>Professional Skills</h4>
+                @if (ViewBag.isprofetionalskill == true)
+                {
+                    foreach (var item in ViewBag.profetionalskill)
+                    {
+                        <label>@item.Subject</label>
+                        <label>@item.Details</label>
+                        <a href="#">Edit</a> <a href="#">Delete</a>
+                    }
+                }
+                else
+                {
+                    <label>You dont add any Professional Skill</label>
+                }
+                <button class="btn btn-block btn-outline-info btn-sm"> Add New </button>
+            </div>
+        </div>
+
+        <div id="WorkingExperiences">
+            <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                <h4>Working Experiences</h4>
+                @if (ViewBag.isworkingexperience == true)
+                {
+                    foreach (var item in ViewBag.workingexperience)
+                    {
+                        <label>@item.Designation at @item.CompanyName </label>
+                        <label>Department : @item.Department</label>
+                        <label>Company Location:@item.CompanyAddress</label>
+                        <label>Started : @item.StartDate   Ended : @item.EndDate </label>
+                        <a href="#">Edit</a> <a href="#">Delete</a>
+                    }
+                }
+                else
+                {
+                    <label>You dont add any Working Experiences</label>
+                }
+
+
+                <button class="btn btn-block btn-outline-info btn-sm"> Add New </button>
+            </div>
+        </div>
+
+        <div id="Projects">
+            <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                <h4>Projects</h4>
+                @if (ViewBag.isproject == true)
+                {
+                    foreach (var item in ViewBag.project)
+                    {
+                        <label>@item.Subject</label>
+                        <label class="text-justify"> @item.Description</label>
+                        <label>Started: @item.StartDate Ended: @item.EndDate</label>
+                        <a href="#">Edit</a> <a href="#">Delete</a>
+                    }
+                }
+                else
+                {
+                    <label>You dont add any Working Experiences</label>
+                }
+
+                <button class="btn btn-block btn-outline-info btn-sm"> Add New </button>
+            </div>
+        </div>
+
+        <div id="CarrierInformations">
+            <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                <h4>Carrier Information</h4>
+                @if (ViewBag.isjobprofile == true)
+                {
+                    <label>Career Objective </label>
+                    <label> @ViewBag.jobprofile.CarrierObjective</label>
+                    <label>Looking For  :   @ViewBag.jobprofile.LookingFor </label>
+                    <label>Available For  :  @ViewBag.jobprofile.AvailableFor  </label>
+                    <label>Prefered Job Catagory - 1  :  @ViewBag.jobprofile.PreferedJobCatagory1  </label>
+                    <label>Prefered Job Catagory - 2  :  @ViewBag.jobprofile.PreferedJobCatagory2  </label>
+                    <label>Prefered Job Catagory - 3  :   @ViewBag.jobprofile.PreferedJobCatagory3  </label>
+                    <label>Prefered Area-1  :  @ViewBag.jobprofile.PreferdArea1  </label>
+                    <label>Prefered Area-2  :  @ViewBag.jobprofile.PreferdArea2  </label>
+                    <label>Expected Salary  :  @ViewBag.jobprofile.ExpectedSalary  </label>
+                    <button class="btn btn-block btn-outline-info btn-sm"> Edit Carrier Information</button>
+                }
+                else
+                {
+                    <label>You dont add Your Carrier Information</label>
+                    <button class="btn btn-block btn-outline-info btn-sm"> Add Carrier Information </button>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-info btn-block">Send Request </button>
+        <button class="btn btn-info btn-block">Send Messege </button>
+        <button class="btn btn-info btn-block">Make Repoet</button>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        if ($("#AcademicQualification").click) {
+            $("#AcademicQualifications").hide();
+        }
+          
+    });
+</script>
+
+

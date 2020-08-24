@@ -1,0 +1,49 @@
+﻿@model Link_with_Dream.Models.Group
+@{
+    ViewData["Title"] = "GroupEdit";
+}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h4>@Model.Name</h4>
+        <hr />
+        <form asp-action="GroupEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MenbersType" class="control-label"></label>
+                <input asp-for="MenbersType" class="form-control" />
+                <span asp-validation-for="MenbersType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Objective" class="control-label"></label>
+                <textarea asp-for="Objective" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Objective" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermsCondition" class="control-label"></label>
+                <textarea asp-for="TermsCondition" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="TermsCondition" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input asp-for="CoverImage" class="form-control" hidden/>
+            </div>
+            <div class="form-group">
+                <input asp-for="CreateTime" class="form-control" hidden/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit Infromation" class="btn btn-outline-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

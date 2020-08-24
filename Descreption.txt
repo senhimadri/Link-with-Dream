@@ -1,0 +1,7 @@
+Languege : ASP.NET Core 3.1
+JavaScript , AJAX , JSON
+Features ==================00==============
+1. Creating Friends
+2. Creating Groups
+3. Creating Company
+4. Job Circulating

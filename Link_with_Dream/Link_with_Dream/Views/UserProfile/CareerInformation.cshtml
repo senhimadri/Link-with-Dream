@@ -1,0 +1,122 @@
+﻿@model Link_with_Dream.Models.CareerInformation
+
+@{
+    ViewData["Title"] = "CareerInformation";
+}
+
+    <div class="card">
+        <div class="row" style="padding:10px;">
+            <div class="col-md-2 align-center">
+                <img src="~/Images/@ViewBag.Userinfo.ProfilePic" class="rounded-circle align-center" style="width:150px; height:150px;" />
+            </div>
+            <div class="col-md-10">
+
+                <h2>@ViewBag.Userinfo.FirstName  @ViewBag.Userinfo.LastName</h2>
+
+                <label class="text-justify"> @ViewBag.Userinfo.Profession </label>
+                <p class="text-justify"> @ViewBag.Userinfo.PersonalObjective </p>
+            </div>
+        </div>
+    </div>
+<br />
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="list-group">
+            <a asp-controller="UserProfile" asp-action="Post" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="Posts">Posts</a>
+            <a asp-controller="UserProfile" asp-action="About" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="About">About</a>
+            <a asp-controller="UserProfile" asp-action="AcademicQualification" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="AcademicQualification">Academic Qualification</a>
+            <a asp-controller="UserProfile" asp-action="SpecialQualification" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="SpecialQualification">Special Qualification</a>
+            <a asp-controller="UserProfile" asp-action="ProfetionalSkill" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="ProfetionalSkil">Profetional Skill</a>
+            <a asp-controller="UserProfile" asp-action="WorkingExperience" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="Working Experience">Working Experience</a>
+            <a asp-controller="UserProfile" asp-action="Project" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="Project">Project</a>
+            <a asp-controller="UserProfile" asp-action="CareerInformation" asp-route-CUserId="@ViewBag.Userinfo.Id" class="list-group-item list-group-item-action" id="Project">Career Information</a>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <partial name="_StateMessege" model="@ViewBag.Messege" />
+        <div id="CarrierInformations">
+            <h4>Carrier Information</h4>
+            <hr />
+            <div style="border-style:double; padding:10px;overflow:hidden;" class="card card-body">
+
+                @if (ViewBag.IsUser == true)
+                {
+                    if (ViewBag.isjobprofile == true)
+                    {
+                        <label>Career Objective </label>
+                        <label>  @Model.CarrierObjective</label>
+                        <label>Looking For  :   @Model.LookingFor </label>
+                        <label>Available For  : @Model.AvailableFor </label>
+                        <label>Prefered Job Catagory - 1  :  @Model.PreferedJobCatagory1 </label>
+                        <label>Prefered Job Catagory - 2  :   @Model.PreferedJobCatagory2</label>
+                        <label>Prefered Job Catagory - 3  :    @Model.PreferedJobCatagory3 </label>
+                        <label>Prefered Area-1  :   @Model.PreferdArea1</label>
+                        <label>Prefered Area-2  :  @Model.PreferdArea2 </label>
+                        <label>Expected Salary  :  @Model.ExpectedSalary </label>
+                        <a asp-controller="CareerInformation" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-block btn-outline-info btn-sm">Edit Your Carrier Information</a>
+                    }
+                    else
+                    {
+                        <label>You dont add Your Carrier Information</label>
+                        <a asp-controller="CareerInformation" asp-action="Create" class="btn btn-block btn-outline-info btn-sm">Add New Career Information</a>
+                    }
+                }
+                else
+                {
+                    if (ViewBag.isjobprofile == true)
+                    {
+                        <label>Career Objective </label>
+                        <label>  @Model.CarrierObjective</label>
+                        <label>Looking For  :   @Model.LookingFor </label>
+                        <label>Available For  : @Model.AvailableFor </label>
+                        <label>Prefered Job Catagory - 1  :  @Model.PreferedJobCatagory1 </label>
+                        <label>Prefered Job Catagory - 2  :   @Model.PreferedJobCatagory2</label>
+                        <label>Prefered Job Catagory - 3  :    @Model.PreferedJobCatagory3 </label>
+                        <label>Prefered Area-1  :   @Model.PreferdArea1</label>
+                        <label>Prefered Area-2  :  @Model.PreferdArea2 </label>
+                        <label>Expected Salary  :  @Model.ExpectedSalary </label>
+                    }
+                    else
+                    {
+                        <label>There is nothing to show</label>
+                    }
+                }
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-3">
+        @if (ViewBag.Status != 0)
+        {
+            if (ViewBag.Status == 1)
+            {
+                <button class="btn btn-info btn-block">Cancle Request </button>
+            }
+            else if (ViewBag.Status == 2)
+            {
+                <button class="btn btn-info btn-block">Accept Request </button>
+            }
+            else if (ViewBag.Status == 3)
+            {
+                <button class="btn btn-info btn-block">Unfriend </button>
+            }
+            else if (ViewBag.Status == 4)
+            {
+                <button class="btn btn-info btn-block">Send Request </button>
+            }
+            else
+            {
+
+            }
+            <button class="btn btn-info btn-block">Send Messege </button>
+            <button class="btn btn-info btn-block">Make Repoet</button>
+        }
+    </div>
+
+</div>
+

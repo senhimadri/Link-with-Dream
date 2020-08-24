@@ -1,0 +1,232 @@
+﻿
+@{
+    ViewData["Title"] = "Network";
+}
+<h2>Create your Network</h2>
+<hr />
+<div class="row col-md-8">
+    <form asp-action="Network" method="post" class="form-inline" style="width:100%;">
+        <div class="form-group">
+            <input type="text" id="SearchTitle" name="searchtext" class="form-control" value="" style="width:400px;" />
+        </div>
+        <select class="form-control" id="SV" name="type">
+            <option value="1">People</option>
+            <option value="2">Group</option>
+            <option value="3">Company</option>
+        </select>
+        <div class="form-group">
+            <input type="submit" value="Search" class="btn btn-outline-primary" />
+        </div>
+    </form>
+</div>
+<br />
+@if (ViewBag.Type == 1)
+{
+    @if (ViewBag.People.Count == 0)
+    {
+        <div class="card">
+            <h4>There is no result</h4>
+        </div>
+    }
+    else
+    {
+        foreach (var item in ViewBag.People)
+        {
+            <div class="card">
+                <div class="row" style="padding:10px;">
+                    <div class="col-md-3 align-center">
+                        <img src="~/Images/@item.ProfilePic" class="rounded-circle align-center" style="width:110px; height:110px;" />
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h2> @item.FirstName @item.LastName</h2>
+                        </div>
+                        <div class="row">
+                            <label class="text-justify">Profession: @item.Profession </label>
+                        </div>
+                        <div class="row">
+                            <a asp-controller="UserProfile" asp-action="AcademicQualification" asp-route-CUserId="@item.Id" class="btn btn-outline-info btn-sm">View Details</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+else if (ViewBag.Type == 2)
+{
+    if (ViewBag.Group.Count == 0)
+    {
+        <div class="card">
+            <h4>There is no result</h4>
+        </div>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>
+                        Group Name
+                    </th>
+                    <th>
+                        Members Type
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in ViewBag.Group)
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.MenbersType
+                        </td>
+                        <td>
+                            <div class="row">
+                                <a asp-controller="GroupManagement" asp-action="GroupAbout" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm" style="float:right;">Details</a>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}
+else if (ViewBag.Type == 3)
+{
+    if (ViewBag.Company.Count == 0)
+    {
+        <div class="card">
+            <h4>There is no result</h4>
+        </div>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    Company.Name
+                </th>
+                <th>
+                    Company.Phone
+                </th>
+                <th>
+                    Company.Email
+                </th>
+                <th>
+                    Action
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Company)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Phone
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        <div class="row">
+                            <a class="btn btn-outline-success" asp-controller="CompanyProfile" asp-action="CompanyAbout" asp-route-id="@item.Id">View Details</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <a data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-outline-primary btn-block"><h5>Company Managment</h5></a>
+    </div>
+    <div class="col-md-4">
+        <a data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-outline-primary btn-block"><h5>Group Managmnet</h5></a>
+    </div>
+    <div class="col-md-4">
+        <a data-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample" class="btn btn-outline-primary btn-block"><h5>Making Friend</h5></a>
+    </div>
+</div> <br />
+<div class="collapse" id="collapseExample1">
+    <div class="card card-body" style="margin-bottom:5%; border-style:double;border-color:lightseagreen;">
+        <div class="row">
+            <div class="col-md-4">
+                <a asp-controller="CompanyProfile" asp-action="CreateCompany" class="btn btn-outline-info btn-block">Create a New Company</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="ManageAdmin" asp-action="YourCreatedCompany" class="btn btn-outline-info btn-block">See Your Created Company</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="ManageAdmin" asp-action="CompanyYouasAdmin" class="btn btn-outline-info btn-block">Company You are as an Admin</a>
+            </div> <br />
+            <div class="col-md-4">
+                <a asp-controller="ManageAdmin" asp-action="CompanyAdminRequest" class="btn btn-outline-info btn-block">Company that send request to be an admin</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="ManageAdmin" asp-action="CompanyYouasFollower" class="btn btn-outline-info btn-block">See the Company You Follow</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="collapse" id="collapseExample2">
+    <div class="card card-body" style="margin-bottom:5%; border-style:double;border-color:lightseagreen;">
+        <div class="row">
+            <div class="col-md-4">
+                <a asp-controller="GroupManagement" asp-action="CreateGroup" class="btn btn-outline-info btn-block">Create a New Group</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="ManageGroupPeople" asp-action="YourCreatedGroup" class="btn btn-outline-info btn-block">See Your Created Groups</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="ManageGroupPeople" asp-action="Groupyouareasadmin" class="btn btn-outline-info btn-block">See the Group You are as an Admin</a>
+            </div> <br />
+            <div class="col-md-4">
+                <a asp-controller="ManageGroupPeople" asp-action="GroupAdminRequest" class="btn btn-outline-info btn-block">Group that send request to be an admin</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="ManageGroupPeople" asp-action="GroupMemberRequest" class="btn btn-outline-info btn-block">Group that send request to be a member</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="ManageGroupPeople" asp-action="YoursentRequestGroup" class="btn btn-outline-info btn-block">Groups that you request to be a member</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="ManageGroupPeople" asp-action="YourConnectedGroup" class="btn btn-outline-info btn-block">Your Connected Groups</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="collapse" id="collapseExample3">
+    <div class="card card-body" style="margin-bottom:5%; border-style:double;border-color:lightseagreen;">
+        <div class="row">
+            <div class="col-md-4">
+                <a asp-controller="MakeFriend" asp-action="SearchPeople" class="btn btn-outline-info btn-block">Search People</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="MakeFriend" asp-action="FriendRequestlist" class="btn btn-outline-info btn-block">See Friend Request list</a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="MakeFriend" asp-action="Friendlist" class="btn btn-outline-info btn-block">See Friend list</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,212 @@
+﻿@model Link_with_Dream.Models.Company
+@{
+    ViewData["Title"] = "CompanyAbout";
+}
+    <div class="row">
+        <div class="col-md-3">
+            <h4> @Html.DisplayFor(model => model.Name)</h4>
+            <h6>email: @Html.DisplayFor(model => model.Email)</h6>
+            <h6>Phone: @Html.DisplayFor(model => model.Phone)</h6>
+            @if (ViewBag.Status == 0)
+            {
+                <a class="btn btn-outline-info" asp-action="EditImage" asp-route-id="@Model.Id"> Edit Image</a>
+            }
+        </div>
+        <div class="col-md-9" style=" height: 180px; width: 100%; overflow: hidden;">
+            <img src="~/Images/@Model.CoverPic" class="align-center" style="width:100%;" />
+        </div>
+    </div>
+<br />
+<div class="row">
+    <div class="col-md-3">
+        <div class="list-group">
+            <a asp-controller="CompanyProfile" asp-action="CompanyPost" asp-route-id="" class="list-group-item list-group-item-action" id="Posts">Posts</a>
+            <a asp-controller="" asp-action="" asp-route-id="" class="list-group-item list-group-item-action" id="Posts">Company Information</a>
+            <a asp-controller="CompanyProfile" asp-action="CompanyAbout" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">About</a>
+            <a asp-controller="CompanyProfile" asp-action="Carrier" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">Career</a>
+            <a asp-controller="CompanyProfile" asp-action="CompanyServise" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">Services</a>
+            <a asp-controller="CompanyProfile" asp-action="CompanyCaseStudy" asp-route-id="@Model.Id" class="list-group-item list-group-item-action" id="Posts">Case Study</a>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <partial name="_StateMessege" model="@ViewBag.Messege" />
+
+        <div>
+            @if (ViewBag.Status == 0 || ViewBag.Status == 1)
+            {
+                <p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#general">Add a General Post</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-info btn-sm btn-block" data-toggle="modal" data-target="#jobcircular">Add a Job Circular</button>
+                        </div>
+                    </div>
+                </p>
+            }
+
+
+            <div class="modal fade bd-example-modal-lg" id="general" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" style="padding:10px;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">@Html.DisplayFor(model => model.Name) General Post</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form asp-controller="ContentManagement" asp-action="CompanyContentPost" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input name="heading" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Subject of the Topic" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="description" class="form-control" id="editor" rows="15" required></textarea>
+                                </div>
+                                <input name="companyId" type="text" value="@Model.Id" hidden>
+                                <div class="form-group">
+                                    <div class="img-thumbnail" style="width:100%;">
+                                        <div class="btn btn-light btn-sm">
+                                            <input type="file" name="image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" value="Post" class="btn btn-primary btn-sm btn-block" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade bd-example-modal-lg" id="jobcircular" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" style="padding:10px;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">@Html.DisplayFor(model => model.Name) Job Circular</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form asp-controller="ContentManagement" asp-action="CompanyJobCircular" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <input name="heading" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Subject of the Topic" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea name="description" class="form-control" id="editor2" rows="15" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="img-thumbnail" style="width:100%;">
+                                        <div class="btn btn-light btn-sm">
+                                            <input type="file" name="image">
+                                        </div>
+                                    </div>
+                                </div>
+                                <input name="companyId" type="text" value="@Model.Id" hidden>
+                                <div class="form-group">
+                                    <input name="jobType" type="text" class="form-control" placeholder="Job Type" required>
+                                </div>
+                                <div class="form-group">
+                                    <input name="area" type="text" class="form-control" placeholder="Job Location" required>
+                                </div>
+                                <div class="form-group">
+                                    <input name="deadLine" type='datetime-local' class="form-control" value="" />
+                                </div>
+                                <input type="submit" value="Post" class="btn btn-primary btn-sm btn-block" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-style:double; padding:10px;overflow:hidden;" class="card card-body">
+                @foreach (var item in ViewBag.Content)
+                {
+                    <div style="border-style:double; padding:10px; margin-top:10px;overflow:hidden;" class="card card-body">
+                        <h5 class="text-primary"> @item.Heading</h5>
+                        @if (item.PostType == 1)
+                        {
+                            <h6 class="text-info">Post Type :<b>General Post</b> </h6>
+                        }
+                        else if (item.PostType == 2)
+                        {
+                            <h6 class="text-info">Post Type :<b>Job Circular</b> </h6>
+                        }
+                        <div style="height:270px;overflow:hidden;">
+                            @if (item.Image == null || item.Image == "")
+                            {
+
+                            }
+                            else
+                            {
+                                <img src="~/Images/@item.Image" alt="..." style="height:150px; float: left;padding-top:6px;margin-right:15px;">
+                            }
+                            <div>
+                                @Html.Raw(item.Description)
+                            </div>
+                        </div>
+                        <div class="row" style="padding-left:15px;padding-top:5px;">
+                            <a class="btn btn-outline-info btn-sm pull-right" asp-controller="ContentManagement" asp-action="Index" asp-route-PostId="@item.Id">View Details</a>
+                            @if (ViewBag.Useriid == @item.CGPoster.Id)
+                            {
+                                <a class="btn btn-outline-primary btn-sm pull-right" asp-controller="ContentPosts" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="col-md-3">
+        @if (ViewBag.Status == 4)
+        {
+            <a class="btn btn-outline-info btn-block btn-sm" asp-controller="ManageAdmin" asp-action="CompanyAdminRequest">Accept Admin Request</a>
+        }
+        else if (ViewBag.Status == 2)
+        {
+            <form asp-controller="ManageAdmin" asp-action="LeaveasAdmin" method="post">
+                <input name="id" value="@Model.Id" hidden />
+                <input class="btn btn-outline-info btn-block btn-sm" type="submit" value="Unfollow" />
+            </form>
+        }
+        else if (ViewBag.Status == 0)
+        {
+            <a class="btn btn-outline-info btn-block btn-sm" asp-controller="ManageAdmin" asp-action="Index" asp-route-id="@Model.Id">Manage Admin</a>
+        }
+        else if (ViewBag.Status == 1)
+        {
+            <form asp-controller="ManageAdmin" asp-action="LeaveasAdmin" method="post">
+                <input name="id" value="@Model.Id" hidden />
+                <input class="btn btn-outline-info btn-block btn-sm" type="submit" value="Leave as Admin" />
+            </form>
+        }
+        else if (ViewBag.Status == 7)
+        {
+            <form asp-controller="ManageAdmin" asp-action="FollowaCompany" method="post">
+                <input name="companyId" value="@Model.Id" hidden />
+                <input class="btn btn-outline-info btn-block btn-sm" type="submit" value="Follow" />
+            </form>
+        }
+        <br />
+        <label>Followed By : @ViewBag.Followers  Peoples</label>
+        <hr />
+        <Label>Started At :@Html.DisplayFor(model => model.Instalation)</Label>
+        <hr />
+        <label>Address</label>
+        <p class="text-justify">@Html.DisplayFor(model => model.Address)</p>
+    </div>
+</div>
+<link href="~/lib/Trumbowyg-master/dist/ui/trumbowyg.min.css" rel="stylesheet" />
+@section Scripts{
+    
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $('#editor').trumbowyg();
+        $('#editor2').trumbowyg();
+        $(document).ready(function () {
+            $('#datetimepicker4').datetimepicker();
+        });
+    </script>
+}

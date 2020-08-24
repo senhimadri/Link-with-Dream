@@ -1,0 +1,77 @@
+﻿@model Link_with_Dream.Models.CareerInformation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h4>Add your Career Information</h4>
+        <hr />
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" class="form-control" value="@ViewBag.UserId" hidden />
+            </div>
+            <div class="form-group">
+                <label asp-for="CarrierObjective" class="control-label"></label>
+                <textarea  asp-for="CarrierObjective" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="CarrierObjective" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LookingFor" class="control-label"></label>
+                <input asp-for="LookingFor" class="form-control" />
+                <span asp-validation-for="LookingFor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvailableFor" class="control-label"></label>
+                <input asp-for="AvailableFor" class="form-control" />
+                <span asp-validation-for="AvailableFor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferedJobCatagory1" class="control-label"></label>
+                <input asp-for="PreferedJobCatagory1" class="form-control" />
+                <span asp-validation-for="PreferedJobCatagory1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferedJobCatagory2" class="control-label"></label>
+                <input asp-for="PreferedJobCatagory2" class="form-control" />
+                <span asp-validation-for="PreferedJobCatagory2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferedJobCatagory3" class="control-label"></label>
+                <input asp-for="PreferedJobCatagory3" class="form-control" />
+                <span asp-validation-for="PreferedJobCatagory3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferdArea1" class="control-label"></label>
+                <input asp-for="PreferdArea1" class="form-control" />
+                <span asp-validation-for="PreferdArea1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreferdArea2" class="control-label"></label>
+                <input asp-for="PreferdArea2" class="form-control" />
+                <span asp-validation-for="PreferdArea2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExpectedSalary" class="control-label"></label>
+                <input asp-for="ExpectedSalary" class="form-control" />
+                <span asp-validation-for="ExpectedSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPublic" /> This will be shown in public
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+        <a asp-controller="UserProfile" asp-action="CareerInformation" class="btn btn-outline-success btn-sm">Back to Profile</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Link_with_Dream.Models.CompanyPeople>
+
+@{
+    ViewData["Title"] = "CompanysentAdminRequest";
+}
+
+    <div class="col-md-8 offset-md-2">
+        <h2> @ViewBag.CompanyInfo.Name </h2>
+
+        <div class=" row">
+            <div class="col-md-8">
+                <h5>List of people whom you sent request</h5>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="ManageAdmin" asp-action="Index" asp-route-id="@ViewBag.CompanyInfo.Id" class="btn btn-outline-info btn-sm" style="float:right;">Back to Admin List</a>
+            </div>
+            
+        </div> <br />
+
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="row" style="padding:10px;">
+                    <div class="col-md-3 align-center">
+                        <img src="~/Images/2f020343-bffb-43f3-995d-9a127024fcfe_IMG_20161228_124205.jpg" class="rounded-circle align-center" style="width:110px; height:110px;" />
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <h2> @Html.DisplayFor(modelItem => item.User.FirstName)  @Html.DisplayFor(modelItem => item.User.LastName)</h2>
+                        </div>
+                        <div class="row">
+                            <label class="text-justify">Profession: @Html.DisplayFor(modelItem => item.User.Profession) </label>
+                        </div>
+                        <div class="row">
+                            <form asp-action="RejectAdminRequest" method="post">
+                                <input type="text" name="ret" value="CompanysentAdminRequest" hidden/>
+                                <input type="text" name="company" value="@ViewBag.CompanyInfo.Id" hidden/>
+                                <input type="text" name="id" value="@item.Id" hidden/>
+                                <input type="submit" value="Reject" class="btn btn-outline-danger btn-sm" />
+                            </form>
+                            <a asp-controller="UserProfile" asp-action="AcademicQualification" asp-route-CUserId="@item.Id" class="btn btn-outline-info btn-sm">View Details</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
